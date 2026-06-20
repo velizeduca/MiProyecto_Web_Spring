@@ -1,5 +1,6 @@
 package com.viajes.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,10 @@ public class HorarioServiceImpl implements HorarioService {
 			horario.setEstado("INACTIVO");
 			repoHorario.save(horario);
 		}
+	}
+
+	@Override
+	public List<Horario> buscarViajes(int origen, int destino, LocalDate fecha) {
+		return repoHorario.buscarViajes(origen, destino, fecha);
 	}
 }
