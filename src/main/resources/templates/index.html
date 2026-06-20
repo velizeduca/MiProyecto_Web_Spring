@@ -61,6 +61,64 @@ rel="stylesheet">
 						</div>
 					</form>
 					
+					<div th:if="${horarios != null and !horarios.isEmpty()}">
+
+						    <h3 class="mt-4 mb-4">
+						        Resultados encontrados
+						    </h3>
+						    <div th:each="h : ${horarios}"
+						         class="card shadow mb-4">
+						        <div class="card-body">
+						            <div class="row align-items-center">
+						                <div class="col-md-3 text-center">
+						                    <h4>
+						      <span th:text="${h.bus.marcaBus.nombre}"></span>
+						                    </h4>
+						                    <h5>
+						                        <span th:text="${h.bus.modelo}"></span>
+						                    </h5>
+						                </div>
+
+						                <div class="col-md-3 text-center">
+						<h6>ORIGEN</h6>
+						                <h4 th:text="${h.ruta.ciudadOrigen.nombre}">
+						                    </h4>
+						                    <h5 th:text="${h.horaSalida}">
+						                    </h5>
+						                </div>
+						                <div class="col-md-2 text-center">
+						                    <h2>→</h2>
+						                    <p>
+						                        <span th:text="${h.ruta.duracionHoras}">
+						                        </span>
+						                        hrs
+						                    </p>
+						                </div>
+						                <div class="col-md-2 text-center">
+						                    <h6>DESTINO</h6>
+						                <h4 th:text="${h.ruta.ciudadDestino.nombre}">
+						                    </h4>
+						                </div>
+						                <div class="col-md-2 text-center">
+						                    <h3>
+						                        S/
+						                        <span th:text="${h.ruta.precio}">
+						                        </span>
+						                    </h3>
+						                    <button class="btn btn-warning">
+						                        SELECCIONAR
+						                    </button>
+						                </div>
+						            </div>
+						        </div>
+						    </div>
+						</div>	
+
+
+					
+					
+					
+					
 					<hr>
 										<div th:if="${horarios!=null}">
 										    <h4>Resultados encontrados</h4>
